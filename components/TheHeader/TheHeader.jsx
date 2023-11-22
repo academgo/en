@@ -28,8 +28,14 @@ export const TheHeader = ({ logo, items }) => {
     setContactModalOpen(!isContactModalOpen);
   };
 
-  const closeMenu = () => {
-    setNavVisible(false);
+  const closeMenu = (e) => {
+    // Check if the clicked element is the "languageMobile" element
+    const isLanguageMobile = e.target.closest(`.${styles.languageMobile}`);
+
+    // Close the menu only if the clicked element is not "languageMobile"
+    if (!isLanguageMobile) {
+      setNavVisible(false);
+    }
   }
 
   useEffect(() => {
