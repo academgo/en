@@ -7,7 +7,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const LanguageDropdown = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('RU');
+  const [selectedLanguage, setSelectedLanguage] = useState('EN');
   const [hasScrolled, setHasScrolled] = useState(false);
 
   const toggleDropdown = () => {
@@ -52,8 +52,8 @@ const LanguageDropdown = () => {
         {selectedLanguage}
       </div>
       <div className={styles.dropdownMenu}>
-        <Link href="https://ru.academgo.com" className={`${styles.dropdownItem} ${hasScrolled ? styles.dropdownScrolled : ''}`} onClick={() => selectLanguage('EN')}>
-          EN
+        <Link href="https://ru.academgo.com" className={`${styles.dropdownItem} ${hasScrolled ? styles.dropdownScrolled : ''}`} onClick={() => selectLanguage('RU')}>
+          RU
         </Link>
       </div>
     </div>
