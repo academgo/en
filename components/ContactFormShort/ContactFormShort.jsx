@@ -19,7 +19,7 @@ const validationSchema = Yup.object({
   email: Yup.string().email('Invalid Email adress').required('Required'),
 });
 
-export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibility }) => {
+export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibility, subject }) => {
 
   const [values, setValues] = useState(initialValues);
 
