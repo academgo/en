@@ -77,6 +77,7 @@ const PopupModalGift = ({ isOpen, onClose, onMessageVisibility }) => {
                 </ul>
                 <ContactFormShort
                   buttonText="Send"
+                  subject="Free Guide Request"
                   onMessageVisibility={onMessageVisibility}
                 />
                 {/* <div className={styles.socialIcons}>
