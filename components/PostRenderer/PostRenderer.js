@@ -11,13 +11,16 @@ export const PostRenderer = ({ blocks, date, categories, title, featuredImage, v
   // Add your custom rendering logic for Post pages here
   return (
     <main>
-      <Image
-        width={1920}
-        height={350}
-        src={featuredImage.node.sourceUrl}
-        alt={title}
-        className={styles.featuredImage}
-      />
+      <div className={styles.imageBlock}>
+        <Image
+          width={1920}
+          height={350}
+          src={featuredImage.node.sourceUrl}
+          alt={title}
+          className={styles.featuredImage}
+        />
+        <div className={styles.overlay} />
+      </div>
       <article className={styles.article}>
         <div className="container">
           <div className={styles.articleWrapper}>
