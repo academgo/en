@@ -1,0 +1,17 @@
+.imageBlog {
+
+  margin-bottom: 30px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 4px solid #FFA800;
+  aspect-ratio: 16/9;
+
+  @media (max-width: 561px) {
+    aspect-ratio: 4/3;
+  }
+}

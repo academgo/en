@@ -1,3 +1,4 @@
+// utils/getPage.js
 import { cleanAndTransformBlocks } from "./cleanAndTransformBlocks";
 
 export const getPage = async (uri) => {
@@ -15,8 +16,15 @@ export const getPage = async (uri) => {
             categories {
               nodes {
                 name
+                uri
               }
             }
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+            title
           }
         }
       }
@@ -32,13 +40,27 @@ export const getPage = async (uri) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(params),
   });
-  const { data } = await response.json();
-  const nodeByUri = data.nodeByUri || null;
-  if (!data.nodeByUri) {
-    return null;
-  }
-  const blocks = cleanAndTransformBlocks(data.nodeByUri.blocks);
-  // const blocks = cleanAndTransformBlocks(data.nodeByUri?.blocks || []);
 
-  return blocks;
-}
+  const { data } = await response.json();
+  const nodeByUri = data.nodeByUri;
+
+  // Check if nodeByUri is truthy before accessing properties
+  if (nodeByUri && nodeByUri.__typename === 'Post') {
+
+    const formattedDate = new Date(nodeByUri.date).toLocaleDateString();
+
+    return {
+      ...nodeByUri,
+      date: formattedDate,
+      blocks: cleanAndTransformBlocks(nodeByUri.blocks),
+    };
+  }
+
+  // Handle other types (e.g., Page)
+  if (nodeByUri && nodeByUri.__typename === 'Page') {
+    return cleanAndTransformBlocks(nodeByUri.blocks);
+  }
+
+  // Return null or handle the case where nodeByUri is not truthy
+  return null;
+};

@@ -42,6 +42,9 @@ import { ParallaxBlock } from "components/ParallaxBlock";
 import { ScrollToBlock } from "components/ScrollToBlock";
 import { ScrollLink } from "components/ScrollLink";
 import { LinkTitle } from "components/LinkTitle";
+import { VideoShort } from "components/VideoShort";
+import { ImageBlog } from "components/ImageBlog";
+import { ListBullet } from "../ListBullet";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -287,6 +290,13 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
+      case "acf/listbullet": {
+        const innerBlocks = objToArrayItems(block.attributes.data, "items");
+        // console.log("LIST BULLET: ", innerBlocks)
+        return (
+          <ListBullet key={block.id} items={innerBlocks} />
+        )
+      }
       case "acf/priceblock": {
         const innerBlocks = objToArrayItems(block.attributes.data, "items");
         // console.log("PRICE BLOCK: ", innerBlocks)
@@ -329,6 +339,16 @@ export const BlockRenderer = ({ blocks }) => {
             description={block.attributes.data.description}
             image={block.attributes.data.image}
             imageAlt={block.attributes.data.image_alt}
+          />
+        )
+      }
+      case "acf/imageblog": {
+        // console.log("IMAGE BLOG: ", block.attributes);
+        return (
+          <ImageBlog
+            key={block.id}
+            src={block.attributes.data.image}
+            alt={block.attributes.data.alt}
           />
         )
       }

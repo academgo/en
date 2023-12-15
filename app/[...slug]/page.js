@@ -1,3 +1,4 @@
+import { PostRenderer } from "components/PostRenderer";
 import { BlockRenderer } from "components/BlockRenderer";
 import { getPage } from "utils/getPage"
 import { notFound } from 'next/navigation'
@@ -7,6 +8,11 @@ export default async function Page({ params }) {
   const data = await getPage(params.slug.join('/'));
   if (!data) {
     notFound();
+  }
+
+  // Check if the page is of type Post
+  if (data.__typename === 'Post') {
+    return <PostRenderer {...data} />;
   }
   // console.log({ data });
   return <BlockRenderer blocks={data} />;

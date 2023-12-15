@@ -1,0 +1,32 @@
+.qrBlock {
+  width: fit-content;
+  background: rgba(4, 28, 52, 0.70);
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 2px solid #FFA800;
+}
+
+.qrBlockWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 320px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.qrBlockText {
+  max-width: 230px;
+}
+
+.text {
+  font-size: clamp(1.25rem, 1.136rem + 0.57vw, 1.563rem);
+  font-weight: 700;
+  color: #fff;
+
+  @media (max-width: 320px) {
+    text-align: center;
+  }
+}
