@@ -1,10 +1,10 @@
-.videoShort {
+.videoShortMobile {
   margin-bottom: clamp(1.875rem, 1.42rem + 2.27vw, 3.125rem);
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 }

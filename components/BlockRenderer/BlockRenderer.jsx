@@ -42,7 +42,7 @@ import { ParallaxBlock } from "components/ParallaxBlock";
 import { ScrollToBlock } from "components/ScrollToBlock";
 import { ScrollLink } from "components/ScrollLink";
 import { LinkTitle } from "components/LinkTitle";
-import { VideoShort } from "components/VideoShort";
+import { VideoShortMobile } from "components/VideoShortMobile";
 import { ImageBlog } from "components/ImageBlog";
 import { ListBullet } from "../ListBullet";
 
@@ -214,6 +214,17 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case 'acf/videoshortmobile': {
+        // console.log("SidebarRenderer.js: VideoShort block")
+        return (
+          <VideoShortMobile
+            key={block.id}
+            videoId={block.attributes.data.video_id}
+            posterImage={block.attributes.data.poster_image}
+            alt={block.attributes.data.poster_image_alt}
+          />
+        )
+      }
       case "acf/linktitle": {
         // console.log("LINK TITLE: ", block.attributes);
         return (

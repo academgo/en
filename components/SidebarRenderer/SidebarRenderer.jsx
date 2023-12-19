@@ -39,7 +39,9 @@ const renderBlock = (block) => {
       return (
         <VideoShort
           key={block.id}
-          videoUrl={block.attributes.data.video_url}
+          videoId={block.attributes.data.video_id}
+          posterImage={block.attributes.data.poster_image}
+          alt={block.attributes.data.poster_image_alt}
         />
       )
     }

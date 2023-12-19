@@ -1,10 +1,10 @@
 'use client';
 import React, { useState } from 'react';
 import YouTube from 'react-youtube';
-import styles from './VideoShort.module.scss';
+import styles from './VideoShortMobile.module.scss';
 import Image from 'next/image';
 
-export const VideoShort = ({ videoId, posterImage, alt }) => {
+export const VideoShortMobile = ({ videoId, posterImage, alt }) => {
   const [showVideo, setShowVideo] = useState(false);
 
   const onReady = (event) => {
@@ -13,7 +13,7 @@ export const VideoShort = ({ videoId, posterImage, alt }) => {
   };
 
   return (
-    <div className={styles.videoShort}>
+    <div className={styles.videoShortMobile}>
       {!showVideo ? (
         <div className={styles.posterContainer} onClick={() => setShowVideo(true)}>
           {posterImage && (
