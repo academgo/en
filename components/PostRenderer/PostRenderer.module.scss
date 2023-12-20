@@ -40,7 +40,9 @@
 }
 
 .mainContent {
-  flex: 1;
+  @media screen and (min-width: 768px) {
+    flex: 3;
+  }
 }
 
 .meta {
@@ -76,6 +78,12 @@
   line-height: normal;
   color: #fff;
   margin-bottom: clamp(2.188rem, 1.801rem + 1.93vw, 3.25rem);
+}
+
+.sidebar {
+  @media screen and (min-width: 768px) {
+    flex: 1;
+  }
 }
 
 .addition {
