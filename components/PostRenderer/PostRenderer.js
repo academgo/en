@@ -14,7 +14,7 @@ export const PostRenderer = ({ blocks, date, categories, title, featuredImage, v
       <div className={styles.imageBlock}>
         <Image
           width={1920}
-          height={350}
+          height={500}
           src={featuredImage.node.sourceUrl}
           alt={title}
           className={styles.featuredImage}
