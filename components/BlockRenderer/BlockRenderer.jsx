@@ -45,6 +45,7 @@ import { LinkTitle } from "components/LinkTitle";
 import { VideoShortMobile } from "components/VideoShortMobile";
 import { ImageBlog } from "components/ImageBlog";
 import { ListBullet } from "../ListBullet";
+import { SliderPosts } from "../SliderPosts";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -88,6 +89,25 @@ export const BlockRenderer = ({ blocks }) => {
         iconTime: data[`slides_${slideIndex}_slide_icon_time`],
         iconCost: data[`slides_${slideIndex}_slide_icon_cost`],
         costBig: data[`slides_${slideIndex}_slide_cost_big`],
+      };
+      arr.push(slide);
+    }
+
+    return arr;
+  };
+
+  const objToArrayPosts = (data) => {
+    const arr = [];
+    const slideCount = data.slides;
+
+    for (let i = 0; i < slideCount; i++) {
+      const slideIndex = i.toString();
+      const slide = {
+        link: data[`slides_${slideIndex}_slide_link`],
+        image: data[`slides_${slideIndex}_slide_image`],
+        category: data[`slides_${slideIndex}_slide_category`],
+        title: data[`slides_${slideIndex}_slide_title`],
+        description: data[`slides_${slideIndex}_slide_description`],
       };
       arr.push(slide);
     }
@@ -566,6 +586,16 @@ export const BlockRenderer = ({ blocks }) => {
         // console.log("SLIDER FEEDBACK: ", innerBlocks)
         return (
           <SliderFeedback
+            key={block.id}
+            slides={innerBlocks}
+          />
+        )
+      }
+      case "acf/sliderposts": {
+        const innerBlocks = objToArrayPosts(block.attributes.data, "slides");
+        // console.log("SLIDER POSTS: ", innerBlocks)
+        return (
+          <SliderPosts
             key={block.id}
             slides={innerBlocks}
           />
