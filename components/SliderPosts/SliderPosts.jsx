@@ -23,9 +23,9 @@ export const SliderPosts = ({ slides }) => {
             clickable: true,
             el: '.swiper-pagination',
           }}
-          // autoplay={{
-          //   delay: 4000,
-          // }}
+          autoplay={{
+            delay: 4000,
+          }}
           breakpoints={{
             320: {
               slidesPerView: 1,
