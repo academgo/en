@@ -46,6 +46,7 @@ import { VideoShortMobile } from "components/VideoShortMobile";
 import { ImageBlog } from "components/ImageBlog";
 import { ListBullet } from "../ListBullet";
 import { SliderPosts } from "../SliderPosts";
+import { VideoMobile } from "components/VideoMobile";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -234,6 +235,17 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case 'acf/videomobile': {
+        // console.log("Video mobile: ", block.attributes)");
+        return (
+          <VideoMobile
+            key={block.id}
+            videoId={block.attributes.data.mobile_video_id}
+            posterImage={block.attributes.data.mobile_poster_image}
+            alt={block.attributes.data.mobile_poster_image_alt}
+          />
+        )
+      }
       case 'acf/videoshortmobile': {
         // console.log("SidebarRenderer.js: VideoShort block")
         return (

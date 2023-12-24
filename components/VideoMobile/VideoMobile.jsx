@@ -1,10 +1,10 @@
 'use client';
 import React, { useState } from 'react';
 import YouTube from 'react-youtube';
-import styles from './VideoShort.module.scss';
+import styles from './VideoMobile.module.scss';
 import Image from 'next/image';
 
-export const VideoShort = ({ videoId, posterImage, alt }) => {
+export const VideoMobile = ({ videoId, posterImage, alt }) => {
   const [showVideo, setShowVideo] = useState(false);
 
   const onReady = (event) => {
