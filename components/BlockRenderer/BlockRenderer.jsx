@@ -47,6 +47,8 @@ import { ImageBlog } from "components/ImageBlog";
 import { ListBullet } from "../ListBullet";
 import { SliderPosts } from "../SliderPosts";
 import { VideoMobile } from "components/VideoMobile";
+import { Table } from "../Table/Table";
+import { TableCore } from "../TableCore";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -235,6 +237,15 @@ export const BlockRenderer = ({ blocks }) => {
 
   return blocks.map(block => {
     switch (block.name) {
+      case 'core/table': {
+        console.log("Table: ", block.originalContent);
+        return (
+          <TableCore
+            key={block.id}
+            data={block.originalContent}
+          />
+        )
+      }
       case 'acf/videomobile': {
         // console.log("Video mobile: ", block.attributes)");
         return (
@@ -297,6 +308,9 @@ export const BlockRenderer = ({ blocks }) => {
           />
         )
       }
+      // case "acf/table": {
+
+      // }
       case "acf/medialeftblock": {
         const innerBlocks = objToArrayItems(block.attributes.data, "items");
         // console.log("MEDIA LEFT: ", innerBlocks)

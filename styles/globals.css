@@ -162,3 +162,77 @@ textarea {
   transform: rotate(180deg);
 }
 /* End accordion styling */
+
+
+/* styles for table */
+    /* Общие стили для таблицы */
+    /* core/table */
+    .wp-block-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: clamp(0.875rem, 0.83rem + 0.23vw, 1rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 15px;
+
+        table {
+          width: 100%;
+        }
+    }
+
+    .wp-block-table tr:first-child {
+        font-weight: bold;
+        color: #333;
+        
+        td {
+          text-align: center;
+        }
+    }
+
+    .wp-block-table td {
+        border: 1px solid #9D9D9D;
+        border-top: none;
+        padding: 12px;
+        text-align: left;
+    }
+
+    .wp-block-table td:first-child {
+        border-left: none;
+    }
+
+    .wp-block-table td:last-child {
+        border-right: none;
+    }
+
+    .wp-block-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Стили для заголовков */
+    /* .wp-block-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #333;
+    } */
+
+    /* Чередующиеся цвета для строк */
+    /* .wp-block-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    } */
+
+    /* Наведение на строки */
+    .wp-block-table tbody tr:hover {
+        background-color: #e0e0e0;
+    }
+
+    /* Мобильные стили (пример) */
+    @media (max-width: 600px) {
+        .wp-block-table th, .wp-block-table td {
+            font-size: 14px;
+        }
+    }
+/* end styles for table */
