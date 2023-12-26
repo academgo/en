@@ -47,7 +47,6 @@ import { ImageBlog } from "components/ImageBlog";
 import { ListBullet } from "../ListBullet";
 import { SliderPosts } from "../SliderPosts";
 import { VideoMobile } from "components/VideoMobile";
-import { Table } from "../Table/Table";
 import { TableCore } from "../TableCore";
 
 export const BlockRenderer = ({ blocks }) => {
