@@ -5,6 +5,7 @@ import styles from "./PostRenderer.module.scss";
 import Image from "next/image";
 import { SidebarRenderer } from 'components/SidebarRenderer';
 import { QrBlock } from '../QrBlock';
+import { ContactFormBlog } from '../ContactFormBlog/ContactFormBlog';
 
 export const PostRenderer = ({ blocks, date, categories, title, featuredImage }) => {
 
@@ -43,6 +44,9 @@ export const PostRenderer = ({ blocks, date, categories, title, featuredImage })
             </div> */}
               {/* Render other Post-specific content here */}
               <BlockRenderer blocks={blocks} />
+              <div className={styles.contactForm}>
+                <ContactFormBlog buttonText="Send" />
+              </div>
             </div>
             <div className={styles.sidebar}>
               <SidebarRenderer blocks={blocks} />

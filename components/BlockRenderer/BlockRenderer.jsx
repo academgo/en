@@ -237,7 +237,7 @@ export const BlockRenderer = ({ blocks }) => {
   return blocks.map(block => {
     switch (block.name) {
       case 'core/table': {
-        console.log("Table: ", block.originalContent);
+        // console.log("Table: ", block.originalContent);
         return (
           <TableCore
             key={block.id}

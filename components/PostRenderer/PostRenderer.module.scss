@@ -89,3 +89,13 @@
 .addition {
   margin-bottom: clamp(3.125rem, 1.989rem + 5.68vw, 6.25rem);
 }
+
+.contactForm {
+  width: 70%;
+  margin: 50px auto;
+  margin-bottom: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
