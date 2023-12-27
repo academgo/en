@@ -1,8 +1,14 @@
-export async function genetatePages() {
+export async function generatePages() {
   const params = {
     query: `
       query SiteMapQuery {
         pages {
+          nodes {
+            date
+            uri
+          }
+        }
+        posts {
           nodes {
             date
             uri
@@ -21,21 +27,27 @@ export async function genetatePages() {
 
   const { data } = await response.json();
   const pagesData = data.pages.nodes;
+  const postsData = data.posts.nodes;
 
-  return pagesData;
+  return { pagesData, postsData };
 }
 
 export default async function sitemap() {
-  const pagesData = await genetatePages();
+  const { pagesData, postsData } = await generatePages();
 
-  const pages = pagesData.map(page => {
-    return {
-      url: `https://academgo.com${page.uri}`, // Здесь используйте URL, который вы хотите добавить в карту сайта
-      lastModified: new Date(page.date), // Устанавливайте дату изменения страницы
-      changeFrequency: 'weekly', // Установите частоту изменения по своему усмотрению
-      priority: 0.8, // Установите приоритет по своему усмотрению
-    };
-  });
+  const pages = pagesData.map(page => ({
+    url: `https://academgo.com${page.uri}`,
+    lastModified: new Date(page.date),
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }));
 
-  return pages;
+  const posts = postsData.map(post => ({
+    url: `https://academgo.com${post.uri}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }));
+
+  return [...pages, ...posts];
 }
