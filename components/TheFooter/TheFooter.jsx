@@ -114,7 +114,7 @@ export const TheFooter = ({ logo, linksFaq, linksNavigate, linksServices }) => {
           </div>
           <div className={styles.divider}></div>
           <div className={styles.copyrigth}>
-            <p>© 2023 PoliPathWay</p>
+            <p>© {new Date().getFullYear()} PoliPathWay</p>
             <p>All rights reserved</p>
           </div>
         </div>
