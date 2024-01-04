@@ -29,6 +29,36 @@ export const ContactFormBlog = ({ onSubmitSuccess, buttonText, onMessageVisibili
     email: false,
   });
 
+  // Handle autofill event
+  useEffect(() => {
+    const checkAutofill = () => {
+      // Check input values for changes after a short delay
+      const timeoutId = setTimeout(() => {
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach((input) => {
+          const fieldName = input.name;
+          const value = input.value;
+
+          // Check if the input is not empty after the delay
+          if (value && fieldStates[fieldName] !== true) {
+            // Handle autofill event
+            handleFieldChange(fieldName, value);
+          }
+        });
+      }, 100);
+
+      return () => clearTimeout(timeoutId);
+    };
+
+    // Listen for input events
+    document.addEventListener('input', checkAutofill);
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener('input', checkAutofill);
+    };
+  }, [fieldStates]);
+
   const [isMessageSent, setIsMessageSent] = useState(false);
   const [isMessageVisible, setIsMessageVisible] = useState(false);
 
