@@ -48,6 +48,7 @@ import { ListBullet } from "../ListBullet";
 import { SliderPosts } from "../SliderPosts";
 import { VideoMobile } from "components/VideoMobile";
 import { TableCore } from "../TableCore";
+import { H2Blog } from "../H2Blog/H2Blog";
 
 export const BlockRenderer = ({ blocks }) => {
 
@@ -242,6 +243,15 @@ export const BlockRenderer = ({ blocks }) => {
           <TableCore
             key={block.id}
             data={block.originalContent}
+          />
+        )
+      }
+      case 'acf/h2blog': {
+        // console.log("H2 BLOG: ", block.attributes);
+        return (
+          <H2Blog
+            key={block.id}
+            h2blog={block.attributes.data.h2blog}
           />
         )
       }
