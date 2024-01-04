@@ -6,7 +6,7 @@ export const ButtonsBlock = () => {
   return (
     <div className='flex items-center gap-12'>
       <Popup label='contact us' align='left' />
-      <ButtonSecondary text='learn more' link='#' />
+      <ButtonSecondary text='learn more' link='/about' />
     </div>
   )
 }
