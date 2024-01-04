@@ -47,7 +47,11 @@ export const getPage = async (uri) => {
   // Check if nodeByUri is truthy before accessing properties
   if (nodeByUri && nodeByUri.__typename === 'Post') {
 
-    const formattedDate = new Date(nodeByUri.date).toLocaleDateString();
+    const formattedDate = new Date(nodeByUri.date).toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'numeric',
+      year: 'numeric',
+    });
 
     return {
       ...nodeByUri,
