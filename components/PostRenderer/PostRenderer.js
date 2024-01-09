@@ -52,9 +52,9 @@ export const PostRenderer = ({ blocks, date, categories, title, featuredImage })
               <SidebarRenderer blocks={blocks} />
             </div>
           </div>
-          <div className={styles.addition}>
+          {/* <div className={styles.addition}>
             <QrBlock />
-          </div>
+          </div> */}
         </div>
       </article>
     </main>
