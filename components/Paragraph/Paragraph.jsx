@@ -5,7 +5,7 @@ import { getMarginTop, getMarginBottom, getPaddingTop, getPaddingBottom } from "
 export const Paragraph = ({ textAlign = "left", content, textColor, fontSize, marginTop, marginBottom, paddingTop, paddingBottom }) => {
   return (
     <p
-      className={`max-w-[1220px] mx-auto ${getPaddingTop(paddingTop)} ${getPaddingBottom(paddingBottom)} ${getMarginTop(marginTop)} ${getMarginBottom(marginBottom)} ${getTextAlign(textAlign)} ${getFontSizeForParagraph(fontSize)}`}
+      className={`max-w-[1220px] mx-auto break-words ${getPaddingTop(paddingTop)} ${getPaddingBottom(paddingBottom)} ${getMarginTop(marginTop)} ${getMarginBottom(marginBottom)} ${getTextAlign(textAlign)} ${getFontSizeForParagraph(fontSize)}`}
       style={{ color: textColor }}
       dangerouslySetInnerHTML={{ __html: relativeToAbsoluteUrls(content) }}
     />
