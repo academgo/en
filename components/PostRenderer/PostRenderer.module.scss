@@ -42,6 +42,7 @@
 .mainContent {
   @media screen and (min-width: 768px) {
     flex: 3;
+    max-width: 70%;
   }
 }
 
