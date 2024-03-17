@@ -19,6 +19,18 @@
   // }
 }
 
+.phoneInput {
+
+  &::before {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #041C34;
+  }
+}
+
 .inputData {
   position: relative;
   width: 100%;
@@ -52,7 +64,7 @@
   background: #fff;
   // border: 1px solid #0089b6;
   border-radius: 5px;
-  padding: 10px 20px 0 20px;
+  padding: 10px 20px 0 30px;
   color: #041C34;
 }
 
@@ -65,7 +77,7 @@
   background: #fff;
   // border: 1px solid #0089b6;
   border-radius: 5px;
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 0 30px;
   color: #041C34;
 }
 
@@ -73,7 +85,7 @@
   position: absolute;
   pointer-events: none;
   bottom: 8px;
-  left: 20px;
+  left: 30px;
   font-size: 14px;
   transition: all 0.3s ease;
   color: #8c9ca8;
@@ -89,7 +101,7 @@
   position: absolute;
   pointer-events: none;
   top: 15px;
-  left: 20px;
+  left: 30px;
   font-size: 14px;
   height: fit-content;
   transition: all 0.3s ease;

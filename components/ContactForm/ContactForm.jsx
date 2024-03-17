@@ -5,6 +5,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import styles from './ContactForm.module.scss';
 
 const initialValues = {
@@ -180,7 +182,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
           </div>
 
           <div
-            className={styles.inputData}
+            className={`${styles.inputData} ${styles.phoneInput}`}
             data-aos="fade-up"
             data-aos-duration="1200"
           >
@@ -196,7 +198,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
               htmlFor="phone"
               className={`${styles.label} ${fieldStates.phone || initialValues.phone ? styles.focused : ''}`}
             >
-              Phone
+              Phone with country code
             </label>
             <ErrorMessage name="phone" component="div" className={styles.errorMessage} />
           </div>
