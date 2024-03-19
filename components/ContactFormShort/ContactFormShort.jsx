@@ -10,12 +10,14 @@ import styles from './ContactFormShort.module.scss';
 const initialValues = {
   name: '',
   country: '',
+  phone: '',
   email: '',
 };
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Required'),
   country: Yup.string().required('Required'),
+  phone: Yup.string().required('Required'),
   email: Yup.string().email('Invalid Email adress').required('Required'),
 });
 
@@ -26,6 +28,7 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
   const [fieldStates, setFieldStates] = useState({
     name: false,
     country: false,
+    phone: false,
     email: false,
   });
 
@@ -170,6 +173,28 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
               </label>
               <ErrorMessage name="country" component="div" className={styles.errorMessage} />
             </div>
+          </div>
+
+          <div
+            className={`${styles.inputData} ${styles.phoneInput}`}
+            data-aos="fade-up"
+            data-aos-duration="1200"
+          >
+            <Field
+              className={styles.input}
+              type="text"
+              id="phone"
+              name="phone"
+              onFocus={() => setFieldStates({ ...fieldStates, phone: true })}
+              onBlur={(e) => handleFieldChange('phone', e.target.value)}
+            />
+            <label
+              htmlFor="phone"
+              className={`${styles.label} ${fieldStates.phone || initialValues.phone ? styles.focused : ''}`}
+            >
+              Phone with country code
+            </label>
+            <ErrorMessage name="phone" component="div" className={styles.errorMessage} />
           </div>
 
           <div
