@@ -247,7 +247,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
             </label>
             <ErrorMessage name="message" component="div" className={styles.errorMessage} />
           </div>
-          <div className={styles.inputData}>
+          <div className={`${styles.inputData} ${styles.checkboxInput}`}>
             <Field
               type="checkbox"
               id="policyAgreement"
