@@ -51,8 +51,7 @@
   }
 }
 
-.inputData input,
-.textarea textarea {
+.inputData input:not([type="checkbox"]) {
   display: block;
   width: 100%;
   height: 100%;
@@ -139,6 +138,45 @@
     flex-direction: column;
     gap: 10px;
   }
+}
+
+.checkboxInput {
+  display: flex;
+  align-items: center;
+}
+
+// Стили для чекбокса
+.checkbox {
+  margin-right: 10px; // Расстояние между чекбоксом и меткой
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  
+  // Кастомизация внешнего вида чекбокса (опционально)
+  // Можно использовать ::before и ::after псевдоэлементы для создания кастомного внешнего вида
+}
+
+// Стили для метки чекбокса
+.checkboxLabel {
+  cursor: pointer;
+  user-select: none; // Предотвращение выделения текста при двойном клике
+
+  // Стилизация текста метки
+  font-size: 14px;
+  color: #fff;
+
+  // Возможно, вы захотите добавить какие-то стили при наведении или когда чекбокс активен
+  &:hover {
+    color: #ffa800; // Пример изменения цвета текста при наведении
+  }
+}
+
+// Стили для сообщения об ошибке для чекбокса
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px; // Расстояние между меткой чекбокса и сообщением об ошибке
+  position: relative; // Для корректного позиционирования
 }
 
 .buttonBlock {

@@ -12,6 +12,7 @@ const initialValues = {
   country: '',
   phone: '',
   email: '',
+  policyAgreement: false,
 };
 
 const validationSchema = Yup.object({
@@ -19,6 +20,7 @@ const validationSchema = Yup.object({
   country: Yup.string().required('Required'),
   phone: Yup.string().required('Required'),
   email: Yup.string().email('Invalid Email adress').required('Required'),
+  policyAgreement: Yup.bool().oneOf([true], 'You must agree to the policy'),
 });
 
 export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibility, subject }) => {
@@ -217,6 +219,21 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
               Email
             </label>
             <ErrorMessage name="email" component="div" className={styles.errorMessage} />
+          </div>
+
+          <div className={styles.inputData}>
+            <div className={styles.checkboxInput}>
+              <Field
+                type="checkbox"
+                id="policyAgreement"
+                name="policyAgreement"
+                className={styles.checkbox}
+              />
+              <label htmlFor="policyAgreement" className={styles.checkboxLabel}>
+                I agree to the <a href="https://www.academgo.com/privacy-policy" target='_blank'>policy</a> on personal data processing
+              </label>
+              <ErrorMessage name="policyAgreement" component="div" className={styles.errorMessage} />
+            </div>
           </div>
 
           <div className={styles.buttonBlock}>
