@@ -16,6 +16,7 @@ const initialValues = {
   phone: '',
   email: '',
   message: '',
+  policyAgreement: false,
 };
 
 const validationSchema = Yup.object({
@@ -24,6 +25,7 @@ const validationSchema = Yup.object({
   phone: Yup.string().required('Required'),
   email: Yup.string().email('Invalid Email adress').required('Required'),
   message: Yup.string().required('Required'),
+  policyAgreement: Yup.bool().oneOf([true], 'You must agree to the policy'),
 });
 
 export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }) => {
@@ -244,6 +246,18 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
               Message
             </label>
             <ErrorMessage name="message" component="div" className={styles.errorMessage} />
+          </div>
+          <div className={styles.inputData}>
+            <Field
+              type="checkbox"
+              id="policyAgreement"
+              name="policyAgreement"
+              className={styles.checkbox}
+            />
+            <label htmlFor="policyAgreement" className={styles.checkboxLabel}>
+              I agree to the policy on personal data processing
+            </label>
+            <ErrorMessage name="policyAgreement" component="div" className={styles.errorMessage} />
           </div>
 
           <div className={styles.buttonBlock}>
