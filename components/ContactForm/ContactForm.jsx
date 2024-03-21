@@ -247,17 +247,19 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
             </label>
             <ErrorMessage name="message" component="div" className={styles.errorMessage} />
           </div>
-          <div className={`${styles.inputData} ${styles.checkboxInput}`}>
-            <Field
-              type="checkbox"
-              id="policyAgreement"
-              name="policyAgreement"
-              className={styles.checkbox}
-            />
-            <label htmlFor="policyAgreement" className={styles.checkboxLabel}>
-              I agree to the policy on personal data processing
-            </label>
-            <ErrorMessage name="policyAgreement" component="div" className={styles.errorMessage} />
+          <div className={styles.inputData}>
+            <div className={styles.checkboxInput}>
+              <Field
+                type="checkbox"
+                id="policyAgreement"
+                name="policyAgreement"
+                className={styles.checkbox}
+              />
+              <label htmlFor="policyAgreement" className={styles.checkboxLabel}>
+                I agree to the policy on personal data processing
+              </label>
+              <ErrorMessage name="policyAgreement" component="div" className={styles.errorMessage} />
+            </div>
           </div>
 
           <div className={styles.buttonBlock}>
