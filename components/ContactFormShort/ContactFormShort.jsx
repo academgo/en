@@ -198,25 +198,27 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
           </div>
 
           <div
-            className={`${styles.inputData} ${styles.checkboxInput}`}
+            className={styles.inputData}
             data-aos="fade-up"
             data-aos-duration="1400"
           >
-            <Field
-              className={styles.input}
-              type="email"
-              id="email"
-              name="email"
-              onFocus={() => setFieldStates({ ...fieldStates, email: true })}
-              onBlur={(e) => handleFieldChange('email', e.target.value)}
-            />
-            <label
-              htmlFor="email"
-              className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
-            >
-              Email
-            </label>
-            <ErrorMessage name="email" component="div" className={styles.errorMessage} />
+            <div className={styles.checkboxInput}>
+              <Field
+                className={styles.input}
+                type="email"
+                id="email"
+                name="email"
+                onFocus={() => setFieldStates({ ...fieldStates, email: true })}
+                onBlur={(e) => handleFieldChange('email', e.target.value)}
+              />
+              <label
+                htmlFor="email"
+                className={`${styles.label} ${fieldStates.email || initialValues.email ? styles.focused : ''}`}
+              >
+                Email
+              </label>
+              <ErrorMessage name="email" component="div" className={styles.errorMessage} />
+            </div>
           </div>
 
           <div className={styles.buttonBlock}>
