@@ -198,7 +198,7 @@ export const ContactFormShort = ({ onSubmitSuccess, buttonText, onMessageVisibil
           </div>
 
           <div
-            className={styles.inputData}
+            className={`${styles.inputData} ${styles.checkboxInput}`}
             data-aos="fade-up"
             data-aos-duration="1400"
           >
