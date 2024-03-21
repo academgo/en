@@ -256,7 +256,7 @@ export const ContactForm = ({ onSubmitSuccess, buttonText, onMessageVisibility }
                 className={styles.checkbox}
               />
               <label htmlFor="policyAgreement" className={styles.checkboxLabel}>
-                I agree to the policy on personal data processing
+                I agree to the <a href="https://www.academgo.com/privacy-policy" target='_blank'>policy</a> on personal data processing
               </label>
               <ErrorMessage name="policyAgreement" component="div" className={styles.errorMessage} />
             </div>
