@@ -55,7 +55,7 @@
   }
 }
 
-.inputData input {
+.inputData input:not([type="checkbox"]) {
   display: block;
   width: 100%;
   height: 100%;
